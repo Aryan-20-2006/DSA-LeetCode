@@ -36,18 +36,50 @@ return 0;
 
 /*Contains Duplicate*/
 
+// #include<bits/stdc++.h>
+// using namespace std;
+
+// bool containsDuplicate(vector<int>& nums){
+
+// sort(nums.begin(),nums.end());
+
+//     for(int i=1;i<nums.size();i++){
+//             if(nums[i]==nums[i-1])
+//                 return true;
+//     }
+
+
+// return false;
+
+// }
+
+// int main(){
+
+//     vector<int>nums={1,2,3,1};
+//     cout<<containsDuplicate(nums)<<endl;
+//     return 0;
+
+
+// }
+
+
 #include<bits/stdc++.h>
 using namespace std;
 
-bool containsDuplicate(vector<int>& nums){
+bool isAnagram(string s, string t){
 
-sort(nums.begin(),nums.end());
+    if(s.size()!=t.size())
+        return false;
 
-    for(int i=1;i<nums.size();i++){
-            if(nums[i]==nums[i-1])
-                return true;
-    }
 
+    sort(s.begin(),s.end());
+    sort(t.begin(), t.end());
+
+    //After sorting
+
+    if(s==t)
+        return true;
+    
 
 return false;
 
@@ -55,10 +87,12 @@ return false;
 
 int main(){
 
-    vector<int>nums={1,2,3,1};
-    cout<<containsDuplicate(nums)<<endl;
+
+    string s="RAT";
+    string t="CAR";
+
+    cout<<isAnagram(s,t)<<endl;
+
     return 0;
 
-
 }
-
