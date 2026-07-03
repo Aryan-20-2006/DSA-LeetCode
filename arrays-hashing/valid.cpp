@@ -19,9 +19,9 @@ int i=0; //left pointer
 int j=n-1; //right pointer
 
 while(i<j){
-    if(!isalnum(s[i])){ //check for alphanumeric character like , ; " "
+    if(!isalnum(s[i])){ //check for alphanumeric character like alphabets but ignores anything else like ,,;,""
         i++;
-        continue; //if u skip a pointer u must no compare in the same iteration
+        continue; //if u skip a pointer u must not compare in the same iteration
     }
 
     if(!isalnum(s[j])){
