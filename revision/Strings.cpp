@@ -146,3 +146,42 @@ using namespace std;
 //     return 0;
 
 // }
+
+//Reverse Every Word in a string
+// string revStr(string s){
+
+
+//     int n=s.size();
+//     reverse(s.begin(),s.end());
+//     string ans=" ";
+
+    
+    
+
+//     for(int i=0;i<n;i++){\
+
+//         string word=" ";
+
+//         while(i<n && s[i]!=' '){
+//             word+=s[i];
+//             i++;
+//         }
+
+//             reverse(word.begin(),word.end());
+
+//         if(word.length()>0)
+//             ans+=""+word; //becuase each word is separated by a space
+//     }
+    
+
+// return ans.substr(1); //we dont want the space at the start so we print the string starting at index 1
+
+// }
+
+// int main(){
+
+//     string s="I am Aryan";
+//     cout<<revStr(s)<<" ";
+//     return 0;
+
+// }
