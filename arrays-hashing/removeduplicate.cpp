@@ -51,35 +51,36 @@ then 1 and 2 , replace 1 by 2 and move j and this process continues
 finally you return j which gives the number of unique elements(since we started j=1 so j reaches at index 5 onces all the unique elements are found so we get 5)
 */
 
-#include<bits/stdc++.h>
-using namespace std;
+// #include<bits/stdc++.h>
+// using namespace std;
 
 
 
-int removeDuplicates(vector<int>&nums){
+// int removeDuplicates(vector<int>&nums){
 
-    int n=nums.size();
+//     int n=nums.size();
 
-    int k=1; // this index is used for overwriting
+//     int k=1; // this index is used for overwriting
 
-    for(int i=1;i<n;i++){ //here im starting with i=1 i.e the first index cuz anyways the first element i.e 0 should be there 
-        if(nums[i]!=nums[i-1]){  //if there are no duplicated elements
-            nums[k]=nums[i];
-            k++;
-        }
+//     for(int i=1;i<n;i++){ //here im starting with i=1 i.e the first index cuz anyways the first element i.e 0 should be there 
+//         if(nums[i]!=nums[i-1]){  //if there are no duplicated elements
+//             nums[k]=nums[i];
+//             k++;
+//         }
 
-    }
+//     }
 
-    return k;
-
-
-}
-
-int main(){
-
-    vector<int>nums={0,1,0,3,12};
-    cout<<removeDuplicates(nums)<<endl;
-    return 0;
+//     return k;
 
 
-}
+// }
+
+// int main(){
+
+//     vector<int>nums={0,1,0,3,12};
+//     cout<<removeDuplicates(nums)<<endl;
+//     return 0;
+
+
+// }
+
