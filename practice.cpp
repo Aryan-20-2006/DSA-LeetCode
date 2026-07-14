@@ -125,43 +125,68 @@ using namespace std;
 
 //Problem-Group Anagrams
 
-vector<vector<string>> groupAnagrams(vector<string>& strs){
+// vector<vector<string>> groupAnagrams(vector<string>& strs){
 
-    unordered_map<string,vector<string>> map;
+//     unordered_map<string,vector<string>> map;
 
-    int n=strs.size();
+//     int n=strs.size();
+
+//     for(int i=0;i<n;i++){
+
+//         vector<int>freq(26,0);
+
+//         //for each individual string, counting frequency of characters
+//         for(int j=0;j<strs[i].size();j++){
+//             freq[strs[i][j]-'a']++; //strs[i]-current word,j-every character in the current word
+
+//         }
+
+//         string key="";// because we need keys and we cant use arrays as keys
+
+//         //converting the numbers into string
+//         for(int k=0;k<26;i++){
+//             key+=to_string(freq[k])+"#"; //can use any separator
+//         }
+
+//         map[key].push_back(strs[i]);
+
+
+//     }
+
+
+//     vector<vector<string>>result;
+
+//     for(pair<string,vector<string>>p:map){
+//         result.push_back(p.second);
+//     }
+
+//     return result;
+
+
+// }
+
+//Problem-SubArray sum equals k
+int subarraysum(vector<int>&nums, int k){
+    int n=nums.size();
+
+    int count=0;
+
+    int sum=0;
+
+    unordered_map<int,int>map; // prefix sum and freq
+
+    map[0]=1;
 
     for(int i=0;i<n;i++){
+        sum+=nums[i];
 
-        vector<int>freq(26,0);
-
-        //for each individual string, counting frequency of characters
-        for(int j=0;j<strs[i].size();j++){
-            freq[strs[i][j]-'a']++; //strs[i]-current word,j-every character in the current word
-
-        }
-
-        string key="";// because we need keys and we cant use arrays as keys
-
-        //converting the numbers into string
-        for(int k=0;k<26;i++){
-            key+=to_string(freq[k])+"#"; //can use any separator
-        }
-
-        map[key].push_back(strs[i]);
-
+        count+=map[sum-k]++;
+        
+        map[sum]++;
 
     }
 
-
-    vector<vector<string>>result;
-
-    for(pair<string,vector<string>>p:map){
-        result.push_back(p.second);
-    }
-
-    return result;
+    return count;
 
 
 }
-
