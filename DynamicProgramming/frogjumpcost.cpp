@@ -30,7 +30,7 @@ using namespace std;
 //     return f(n-1,heights,dp);
 // }
 
-//Memoization Approach
+//Tabulation approach
 int frogJump(int n, vector<int>&heights){
 
     vector<int>dp(n,0);
@@ -56,7 +56,7 @@ int frogJump(int n, vector<int>&heights){
 }
 
 
-//Better Approach-Tabulation
+//Better Approach-Space Optimization;
 
 // int frogJump(int n, vector<int>&heights){
 
