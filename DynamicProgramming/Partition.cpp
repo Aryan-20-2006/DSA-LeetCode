@@ -243,16 +243,16 @@ int countPartitions(int n, int diff, vector<int>&nums){
     
     int totalSum=0;
 
-    int target=(totalSum-diff)/2;
+
 
     for(int i=0;i<n;i++){
         totalSum+=nums[i];
     }
 
-    if(totalSum<0 || target%2!=0)
+    if((totalSum-diff)<0 || (totalSum-diff)%2!=0)
         return 0; //doesnt count the subset
 
-    return findWays(nums,target);
+    return findWays(nums,(totalSum-diff)/2);
 
 
 }
