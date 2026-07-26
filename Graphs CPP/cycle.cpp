@@ -133,10 +133,12 @@ return false;
 //                 return true;
 //             }
 
+//        }
+
 //             //if it has been previously visited
 //             else if(pathvisited[it]){
 //                 return true;
-//             }
+//             
 //         }
 //     }
 
