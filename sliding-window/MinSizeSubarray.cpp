@@ -24,7 +24,7 @@ int minSubArrayLen(int target, vector<int>&nums){
         }
     }
 
-    //if the minlengtt never gets updated
+    //if the minlength never gets updated
     if(minlength==INT_MAX)
         return 0;
 
