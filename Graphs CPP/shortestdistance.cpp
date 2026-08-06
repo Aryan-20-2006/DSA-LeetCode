@@ -21,6 +21,9 @@ dist[src]=0; //from source to source distance is zero
 
 queue<int>q; //to store the node and its distance . We're not using pair since we already have the distance array
 
+q.push(src);
+
+
 while(!q.empty()){
     int node=q.front();
     q.pop();
@@ -28,7 +31,7 @@ while(!q.empty()){
     //if there is any shorter distance then update it
     for(auto it:adj[node]){
         if(dist[it]+1<dist[it]){
-            dist[it]=dist[it]+1;
+            dist[it]=dist[node]+1;
             q.push(it);
         }
     }
