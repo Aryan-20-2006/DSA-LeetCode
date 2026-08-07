@@ -33,8 +33,6 @@ class Graph{
 
     vector<int>shortest_reach(int start){
 
-        
-
         //distance matrix-nodes start from 1 to n, so n+1
         vector<int>dist(n+1,-1); //assigning it to -1 because later if you find a disconnected node, then distance would be -1
 
