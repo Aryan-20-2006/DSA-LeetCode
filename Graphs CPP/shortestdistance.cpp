@@ -30,7 +30,7 @@ while(!q.empty()){
 
     //if there is any shorter distance then update it
     for(auto it:adj[node]){
-        if(dist[it]+1<dist[it]){
+        if(dist[node]+1<dist[it]){
             dist[it]=dist[node]+1;
             q.push(it);
         }
