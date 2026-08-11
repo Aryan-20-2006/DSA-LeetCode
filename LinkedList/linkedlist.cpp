@@ -35,6 +35,8 @@ Node* convert(vector<int>&arr){
 
 }
 
+
+
 //length of a LL
 int length(Node* head){
     int count=0;
@@ -46,6 +48,149 @@ int length(Node* head){
     }
 
     return count;
+}
+
+//deleting the head of the linked list
+Node* deletehead(Node* head){
+
+    //edge case-if there is nothing to delete, then just return the head
+    if(head==NULL)
+        return head;
+
+    Node* temp=head;
+    head=head->next;
+    free(temp); //we have to free this memory
+    return head;
+
+
+}
+
+//deleting the tail of the linked list
+Node* deletetail(Node* head){
+
+    //edge case-either you have no node or a single node
+    if(head==NULL || head->next==NULL)
+        return NULL; 
+
+    Node* temp=head;
+    while(temp->next->next!=NULL){ //since we want to remove the tail, the temp points to the second last element and we want it to point it to NULL
+        temp=temp->next; //keep traversing until temp->next->next=NULL
+
+
+    }
+
+    free(temp->next); //eg:- 9->3 I want to delete 3, then 9's temp->next is 3 so free(temp->next)
+    temp->next=NULL;
+
+    return head;
+
+}
+
+//deleting kth node of the linked list
+Node* deletekNode(Node* head, int k){
+
+    if(head==NULL)
+        return head;
+
+    //deleting the first element
+    if(k==1){
+        Node* temp=head;
+        head=head->next;
+        free(temp);
+        return head;
+    }
+
+    //deleting any k node
+    Node* temp=head;
+    Node* prev=NULL;
+    int cnt=0; //to check if its an element
+
+    while(temp!=NULL){
+        cnt++;
+
+        if(cnt==k){
+            prev->next=prev->next->next;
+            free(temp);
+            break;
+        }
+
+        prev=temp;
+        temp=temp->next;
+
+    }
+
+return head;
+
+
+}
+
+//deleting a particular element
+Node* deleteelement(Node* head, int ele){
+
+    if(head==NULL)
+        return head;
+
+    //deleting the first element with that value
+    if(head->data==ele){
+        Node* temp=head;
+        head=head->next;
+        free(temp);
+        return head;
+    }
+
+    //deleting any other element-just do a linear search
+    Node* temp=head;
+    Node* prev=NULL;
+   
+
+    while(temp!=NULL){
+
+        if(temp->data==ele){
+            prev->next=prev->next->next;
+            free(temp);
+            break;
+        }
+
+        prev=temp;
+        temp=temp->next;
+
+    }
+
+return head;
+
+
+}
+
+/*
+void deleteNode(ListNode* node) {
+        
+       if(node==NULL){
+            return;
+       }
+
+        ListNode* temp=node->next;
+
+        node->val=node->next->val; //copying the next node's value into this
+
+        node->next=node->next->next; //skip the current node
+
+
+        delete temp; //free the node that we saved earlier
+
+
+
+
+    }
+
+*/
+
+void print(Node* head){
+    while(head!=NULL){
+        cout<<head->data<<" ";
+        head=head->next;
+    }
+
+    cout<<endl;
 }
 
 //searching for an element in the linked list
@@ -64,19 +209,38 @@ int check(Node* head, int val){
 
 int main(){
 
-vector<int>arr={1,2,3,4};
+vector<int>arr={10,20,30,40};
 // Node* y=new Node(arr[0],nullptr); //pointer to the memory location
 // cout<<y;
 
 //traversal 
 Node* head=convert(arr);
-Node* temp=head;
-// while(temp!=NULL){
-//     cout<<temp->data<<" ";
-//     temp=temp->next;
-// }
+// // Node* temp=head;
+// // // while(temp!=NULL){
+// // //     cout<<temp->data<<" ";
+// // //     temp=temp->next;
+// // // }
 
-cout<<length(head)<<" ";
+// // cout<<length(head)<<" ";
+
+// head=deletehead(head);
+
+// head=deletetail(head);
+
+// int k=3;
+
+// head=deletekNode(head,k);
+
+
+head=deleteelement(head,30);
+
+
+
+
+
+print(head);
+
+return 0;
 
 
 }
