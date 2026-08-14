@@ -1,5 +1,5 @@
 //Maximum Average Subarray I
-//Difficulyt:Easy
+//Difficuly:Easy
 
 #include<bits/stdc++.h>
 using namespace std;

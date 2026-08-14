@@ -184,6 +184,87 @@ void deleteNode(ListNode* node) {
 
 */
 
+//Insertion at the head
+Node* inserthead(Node* head,int val){
+    Node* temp=new Node(val,head);  //takes the val and what is the next
+    return temp;//or return new Node(head,val);
+}
+
+//Insertion at the tail
+Node* insertTail(Node* head, int val){
+    if(head==NULL){ //if the list is empty
+        return new Node(val);
+    }
+
+    Node* temp=head;
+    while(temp->next!=NULL){
+        temp=temp->next;
+    }
+
+    Node* newNode=new Node(val);
+    temp->next=newNode;
+    return head;
+}
+
+//Inserting the kth element
+Node* insertk(Node* head,int ele, int k){
+    if(head==NULL){ //then u can insert only at the fist position
+        if(k==1){
+            return new Node(ele);
+        }
+
+        else{
+            return NULL;
+        }
+    }
+
+    int cnt=0;
+    Node* temp=head;
+    
+    while(temp!=NULL){
+        cnt++;
+
+        //I can only insert at that position if I am one behind the head
+        if(cnt==k-1){
+            Node* newNode=new Node(ele);
+            newNode->next=temp->next; //first connect
+            temp->next=newNode;
+            break;
+        }
+
+
+        temp=temp->next;
+    }
+
+    return head;
+
+}
+
+Node* insert_before_val(Node* head,int ele, int val){
+    if(head==NULL){ //if the list is empty, then you cant find the val
+        return NULL;
+    }
+
+    Node* temp=head;
+    
+    while(temp!=NULL){
+
+        //Eg:3->1->5->8 suppose temp is at 5 i.e temp->next->data=8, so the temp at worst case can be at the second last element
+        if(temp->next->data==val){
+            Node* newNode=new Node(ele);
+            newNode->next=temp->next;
+            temp->next=newNode;
+            break;
+        }
+
+
+        temp=temp->next;
+    }
+
+    return head;
+
+}
+
 void print(Node* head){
     while(head!=NULL){
         cout<<head->data<<" ";
@@ -232,9 +313,15 @@ Node* head=convert(arr);
 // head=deletekNode(head,k);
 
 
-head=deleteelement(head,30);
+// head=deleteelement(head,30);
 
+// head=inserthead(head,100);
 
+// head=insertTail(head,200);
+
+// head=insertk(head,5,3);
+
+head=insert_before_val(head,3,30);
 
 
 

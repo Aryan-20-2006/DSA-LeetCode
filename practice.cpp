@@ -166,27 +166,159 @@ using namespace std;
 // }
 
 //Problem-SubArray sum equals k
-int subarraysum(vector<int>&nums, int k){
-    int n=nums.size();
+// int subarraysum(vector<int>&nums, int k){
+//     int n=nums.size();
 
-    int count=0;
+//     int count=0;
 
-    int sum=0;
+//     int sum=0;
 
-    unordered_map<int,int>map; // prefix sum and freq
+//     unordered_map<int,int>map; // prefix sum and freq
 
-    map[0]=1;
+//     map[0]=1;
 
-    for(int i=0;i<n;i++){
-        sum+=nums[i];
+//     for(int i=0;i<n;i++){
+//         sum+=nums[i];
 
-        count+=map[sum-k]++;
+//         count+=map[sum-k]++;
         
-        map[sum]++;
+//         map[sum]++;
 
-    }
+//     }
 
-    return count;
+//     return count;
 
 
-}
+// }
+
+//Longest Substring without repeating characters
+// int lengthOfLongestSubstring(string s){
+
+//     int l=0;
+//     int n=s.size();
+//     int r=0;
+//     int maxlen=0;
+
+//     vector<int>hash(256,-1);
+
+//     while(r<n){
+//         if(hash[s[r]]!=-1){
+//             if(hash[s[r]]>=l){
+//                 l=hash[s[r]]+1;
+//                 l=l+1;
+
+//             }
+
+//             hash[s[r]]=r;
+//             int length=r-l+1;
+//             maxlen=max(maxlen,length);
+//             r++;
+            
+//         }
+//     }
+
+//     return maxlen;
+
+
+// }
+
+// int main(){
+//     string s="abcabcbb";
+//     cout<<lengthOfLongestSubstring(s)<<" ";
+//     return 0;
+// }
+
+
+// //First negative in every window of size k
+// vector<int>firstNegative(vector<int>&arr, int k){
+
+//     vector<int>result;
+//     int n=arr.size();
+
+//     for(int i=0;i<=n-k;i++){
+//         bool found=false; //initially no negative found
+//         for(int j=i;j<i+k;i++){
+//             if(arr[j]<0){
+//                 result.push_back(arr[j]);
+//                 found=true;
+//             }
+
+//             if(!found){
+//                 result.push_back(0);
+//             }
+//         }
+//     }
+
+
+// return result;
+
+
+// }
+
+// vector<int>firstNegative(vector<int>&arr,int k){
+
+//     vector<int>result;
+//     queue<int>q;
+//     int n=arr.size();
+
+//     for(int i=0;i<n;i++){
+//         if(arr[i]<0){
+//             q.push(arr[i]); //push every negative element u find into the queue
+//         }
+
+//         //check if the window exists
+//         if(i>=k-1){
+//             //queue is empty
+//             if(q.empty()){
+//                 result.push_back(0);
+//             }
+
+//             else{
+//                 result.push_back(q.front());
+//             }
+
+
+//             //if the queue is not empty
+//             if(!q.empty() && q.front()==arr[i-k+1]){
+//                 q.pop();
+//             }
+//         }
+
+        
+//     }
+
+//     return result;
+
+
+// }
+
+// //Longest Subarray with Sum K
+// int longestSubarray(vector<int>&arr, int k){
+
+//     //{presum,index}
+//     unordered_map<int,int>preSum;
+//     int sum=0;
+//     int maxlen=0;
+
+//     for(int i=0;i<arr.size();i++){
+//         sum+=arr[i];
+
+//         if(sum==k){
+//             maxlen=max(maxlen,i+1);
+//         }
+
+//         int rem=sum-k;
+//         if(preSum.find(rem)!=preSum.end()){
+//             int len=i-preSum[rem];
+//             maxlen=max(maxlen,len);
+//         }
+
+//         if(preSum.find(sum)==preSum.end()){
+//             preSum[sum]=i;
+//         }
+//     }
+
+// return maxlen;
+
+
+// }
