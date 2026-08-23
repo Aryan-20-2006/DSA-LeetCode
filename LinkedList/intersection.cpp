@@ -35,6 +35,8 @@ public: //TC-O(M*N)-For each node in list2,we're iterating the entire list1, SC-
 
             temp=temp->next;
         }
+
+        headB=headB->next;
     }
 
     return nullptr;
