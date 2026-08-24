@@ -6,23 +6,41 @@ using namespace std;
 
 int longestConsecutive(vector<int>&nums){
 
-//sort the array
-sort(nums.begin(),nums.end()); //this takes nlogn so its not optimal
-
-int maxlen=0;
-int len=1;
-
 int n=nums.size();
 
-for(int i=0;i<n-1;i++){
-    if(nums[i]<nums[i+1] && nums[i+1]==1+nums[i]){
-        len++;
-        maxlen=max(maxlen,len);
-    }
+if(n==0)
+    return 0;
+
+int longest=1;
+
+unordered_set<int>st;
+
+//put all the element of the array into the set
+for(int i=0;i<n;i++){
+    st.insert(nums[i]);
 }
 
-return maxlen;
+//iterating through the set 
+for(auto it:st){
+    
+    //if I dont find a previous element in the set, then the current element is my starting point
+    if(st.find(it-1)==st.end()){
+        int cnt=1;
+        int x=it; //this is the first element where the sequence would start from
 
+        //In case, you find the next element
+        while(st.find(x+1)!=st.end()){
+            cnt=cnt+1;
+            x=x+1; //going to the next element
+        }
+
+        longest=max(longest,cnt);
+    }
+
+    
+}
+
+return longest;
 
 }
 
