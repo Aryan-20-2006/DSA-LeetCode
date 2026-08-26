@@ -40,7 +40,7 @@ class BinaryHeap{
     
     //Inserting a new key
     void Insert(int x){
-        //when size==capacity, there is na overflow
+        //when size==capacity, there is an overflow
 
         if(size==capacity){
             cout<<"Binary Heap Overflow" <<endl;
@@ -63,6 +63,7 @@ class BinaryHeap{
         }
     }
 
+    //This is for minheap
     void Heapify(int ind){
 
         //Right child

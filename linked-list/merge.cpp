@@ -14,7 +14,7 @@ struct ListNode{
 
 struct ListNode* mergeTwolists(ListNode* l1,ListNode* l2){
 
-    ListNode temp(-1); //create a temp nod-this is the dummy variable
+    ListNode temp(-1); //create a temp node-this is the dummy variable
     ListNode* curr=&temp;
 
     while(l1!=nullptr && l2!=nullptr){
