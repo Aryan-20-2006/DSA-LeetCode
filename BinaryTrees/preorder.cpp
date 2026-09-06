@@ -10,6 +10,7 @@ using namespace std;
        TreeNode(int val) : data(val) , left(nullptr) , right(nullptr) {}
   };
 
+//Recursive Solution
 //TC-O(N)-processing traversals only once, SC-O(N)-stack space
 void preorder(TreeNode* root,vector<int>&arr){
 
@@ -34,5 +35,36 @@ vector<int>preorderTraversal(TreeNode* root){
 
 
     return arr;
+
+}
+
+//Iterative Solution-Using a stack
+//TC-O(N), SC-O(N)
+vector<int>preorderTraversal(TreeNode* root){
+    vector<int>preorder;
+
+    if(root==nullptr)
+        return preorder;
+
+    stack<TreeNode*>st;
+
+    st.push(root);
+
+    while(!st.empty()){
+
+        root=st.top();
+        st.pop();
+
+        preorder.push_back(root->data);
+
+        //push right and then left -why?-Since stack is LIFO and in preoder we want Root,Left,Right
+        if(root->right!=nullptr)
+            st.push(root->right);
+
+        if(root->left!=nullptr)
+            st.push(root->left);
+    }
+
+return preorder;
 
 }
