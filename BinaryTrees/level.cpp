@@ -24,11 +24,12 @@ queue<TreeNode*>q;
 q.push(root);
 
 while(!q.empty()){
+    
+    
     int size=q.size();
-
     vector<int>level;
 
-    for(int i=0;i<q.size();i++){ //this traverses level wise eg:-1,then 2,3 , then 4,5,6,7
+    for(int i=0;i<size;i++){ //this traverses level wise eg:-1,then 2,3 , then 4,5,6,7
         TreeNode* node=q.front();
         q.pop();
 
