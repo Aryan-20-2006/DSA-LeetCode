@@ -323,3 +323,42 @@ using namespace std;
 
 // }
 
+int longestSubarray(vector<int>& arr, int k) {
+        // code here
+        int n=arr.size();
+        int maxlen=0;
+        int sum=arr[0]; //the first element can also be the sum and equal to k
+        
+        int l=0;
+        int r=0;
+        
+        while(r<n){
+
+            sum+=arr[r];
+
+            while(sum>k){
+                sum-=arr[l];
+                l=l+1;
+            }
+            
+        
+            if(sum==k){
+                maxlen=max(maxlen,r-l+1);
+            }
+
+            r++;
+
+        }
+        
+        return maxlen;
+}
+
+int main(){
+
+vector<int>arr={10,5,2,7,1,-10};
+int k=15;
+cout<<longestSubarray(arr,k)<<" ";
+return 0;
+
+
+}
